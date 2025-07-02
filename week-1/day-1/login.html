@@ -3,14 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Giriş Yap</title>
   </head>
+
   <body>
-    <h1>Giriş Yap</h1>
-    <form action="#" method="post">
-      <div>
-        <label for="email">E-posta:</label>
+    <h1 class="page-title">Giriş Yap</h1>
+    <form class="form-section" action="#" method="post">
+      <div class="form-group">
+        <label class="form-label" for="email">E-posta:</label>
         <input
+          class="form-input"
           type="email"
           id="email"
           name="email"
@@ -19,11 +22,10 @@
         />
       </div>
 
-      <br />
-
-      <div>
-        <label for="password">Şifre:</label>
+      <div class="form-group">
+        <label class="form-label" for="password">Şifre:</label>
         <input
+          class="form-input"
           type="password"
           id="password"
           name="password"
@@ -32,18 +34,21 @@
         />
       </div>
 
-      <br />
-
-      <div>
-        <input type="checkbox" id="remember" name="remember" />
-        <label for="remember">Beni Hatırla</label>
+      <div class="form-group-checkbox">
+        <input
+          class="form-checkbox"
+          type="checkbox"
+          id="remember"
+          name="remember"
+        />
+        <label class="form-label" for="remember">Beni Hatırla</label>
       </div>
 
-      <br />
-
-      <button type="submit">Giriş Yap</button>
+      <button class="submit-button" type="submit">Giriş Yap</button>
     </form>
 
-    <p>Hesabın yok mu? <a href="signup.html">Hemen Kayıt Ol</a></p>
+    <p class="switch-link">
+      Hesabın yok mu? <a class="link" href="signup.html">Hemen Kayıt Ol</a>
+    </p>
   </body>
 </html>
