@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Kayıt Ol</title>
+  </head>
+  <body>
+    <h1 class="page-title">Hesap Oluştur</h1>
+    <form class="form-section" action="#" method="post">
+      <div class="form-group">
+        <label class="form-label" for="fullname">Ad Soyad:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="fullname"
+          name="fullname"
+          required
+          placeholder="Ad ve soyadınızı giriniz"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="signup-email">E-posta:</label>
+        <input
+          class="form-input"
+          type="email"
+          id="signup-email"
+          name="signup-email"
+          required
+          placeholder="E-posta adresinizi giriniz"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="signup-password">Şifre:</label>
+        <input
+          class="form-input"
+          type="password"
+          id="signup-password"
+          name="signup-password"
+          required
+          placeholder="Şifrenizi oluşturunuz"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="confirm-password">Şifreyi Onayla:</label>
+        <input
+          class="form-input"
+          type="password"
+          id="confirm-password"
+          name="confirm-password"
+          required
+          placeholder="Şifrenizi tekrar giriniz"
+        />
+      </div>
+
+      <button class="submit-button" type="submit">Kayıt Ol</button>
+    </form>
+
+    <p class="switch-link">
+      Zaten bir hesabın var mı?
+      <a class="link" href="login.html">Giriş Yap</a>
+    </p>
+  </body>
+</html>
