@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --light-text: #f6f2f2;
+  --dark: #000;
+  --primary: #f5c518;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  background-color: var(--dark);
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+button,
+input {
+  outline: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.yellow-text {
+  color: var(--primary);
+}
+
+/* Main Hero Section */
+
+.main-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  background-image: url("../images/background.png");
+  background-position: top;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: -1;
+}
+
+.main-section {
+  position: relative;
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+.main-section .main-img::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: linear-gradient(to top, var(--dark), rgba(0, 0, 0, 0));
+}
+
+.movie-detail {
+  position: relative;
+  top: 150px;
+}
+
+.movie-grid {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  gap: 1rem;
+  grid-template-columns: calc(100% - 400px) 400px;
+}
+
+.main-hero .movie-poster {
+  width: 350px;
+  max-width: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+}
+
+.hero-infos {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  background: -webkit-linear-gradient(#eee, #7d8104);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-genres {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hero-genres .genre-box {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+  background-color: rgba(125, 129, 4, 0.2);
+  color: var(--light-text);
+}
+
+.hero-vote {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.hero-vote .imdb {
+  background-color: var(--primary);
+  color: var(--dark);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.hero-vote .vote {
+  font-size: 0.9rem;
+  color: var(--light-text);
+}
+
+.hero-vote .vote .vote-count {
+  font-size: 0.75rem;
+  color: var(--light-text);
+}
+
+.movie-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+.hero-overview {
+  font-size: 1rem;
+  color: var(--light-text);
+  text-wrap: balance;
+  max-width: 80%;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: var(--light-text);
+}
+
+.movie-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-style {
+  position: relative;
+  width: max-content;
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  overflow: hidden;
+  color: var(--light-text);
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.624);
+}
+
+.favourite-btn,
+.heart-icon {
+  transition: 0.25s ease-in-out;
+}
+
+.heart-icon {
+  color: var(--primary);
+}
+
+.favourite-btn:hover {
+  background-color: var(--primary);
+  color: var(--dark);
+}
+
+.favourite-btn:hover .heart-icon {
+  color: var(--dark);
+}
+
+.hero-link .arrow {
+  position: relative;
+  margin-left: -1rem;
+  opacity: 0;
+  transition: 0.25s;
+}
+
+.hero-link:hover .arrow {
+  margin-left: 0;
+  opacity: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .movie-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.5rem;
+  }
+
+  .hero-infos {
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .hero-genres {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .hero-title {
+    font-size: 2.75rem;
+  }
+
+  .hero-overview {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+}
