@@ -1,0 +1,69 @@
+.actors {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 2rem auto;
+  gap: 1rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.actors .actor {
+  position: relative;
+  width: 250px;
+  height: 325px;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.actor .actor-profile {
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.75);
+  object-fit: cover;
+  transition: 0.25s ease-in-out;
+}
+
+.actor:hover .actor-profile {
+  transform: scale(1.1);
+}
+
+.actor .actor-info {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem;
+  overflow: hidden;
+  background: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+}
+
+.actor-info .actor-role {
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.actor-info .actor-name {
+  font-size: 0.75rem;
+  color: var(--light-text);
+  font-weight: 400;
+}
+
+.actor-info .actor-desc {
+  position: relative;
+  font-size: 0.75rem;
+  color: var(--light-text);
+  font-weight: 400;
+  opacity: 0;
+  height: 0;
+  transition: 0.25s ease-in-out;
+}
+
+.actor:hover .actor-desc {
+  opacity: 1;
+  height: 40px;
+}
