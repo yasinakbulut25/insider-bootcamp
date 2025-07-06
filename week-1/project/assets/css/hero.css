@@ -140,6 +140,11 @@
   border: 1px solid var(--primary);
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.624);
+  transition: 0.25s ease-in-out;
+}
+
+.btn-style:active {
+  transform: scale(0.8);
 }
 
 .favourite-btn,
@@ -151,12 +156,14 @@
   color: var(--primary);
 }
 
-.favourite-btn:hover {
+.favourite-btn:hover,
+.favourite-btn.added {
   background-color: var(--primary);
   color: var(--dark);
 }
 
-.favourite-btn:hover .heart-icon {
+.favourite-btn:hover .heart-icon,
+.favourite-btn.added .heart-icon {
   color: var(--dark);
 }
 

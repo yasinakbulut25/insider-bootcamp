@@ -1,4 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Header on scroll
+  const header = document.querySelector("header");
+
+  if (!header) return;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+
   // Hamburger menu
   const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
   const navbarLinks = document.querySelector(".navbar-links");
@@ -15,16 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Header on scroll
-  const header = document.querySelector("header");
+  // Add favourite
+  const favouriteButton = document.querySelector(".favourite-btn");
 
-  if (!header) return;
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
+  favouriteButton.addEventListener("click", () => {
+    favouriteButton.classList.add("added");
   });
 });
