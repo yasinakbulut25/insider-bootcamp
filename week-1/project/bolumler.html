@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
     <header class="header">
@@ -65,14 +66,14 @@
     </header>
 
     <section class="section container other-page">
-      <h2 class="section-title">
+      <h2 data-aos="fade-down" class="section-title">
         <i class="bi bi-collection-play"></i>
         Favori Bölümler
       </h2>
 
       <div class="episode-row">
         <div class="episode-cards">
-          <div class="episode-card">
+          <div data-aos="fade-down" class="episode-card">
             <p class="episode-season">Sezon 2, Bölüm 13</p>
             <h3 class="episode-title">Beside the Dying Fire</h3>
             <p class="episode-desc">
@@ -80,7 +81,7 @@
               dağılır, Rick’in liderliği belirginleşir.
             </p>
           </div>
-          <div class="episode-card">
+          <div data-aos="fade-down" class="episode-card">
             <p class="episode-season">Sezon 3, Bölüm 12</p>
             <h3 class="episode-title">Clear</h3>
             <p class="episode-desc">
@@ -88,7 +89,7 @@
               evlerine dönüp yüzleşirler.
             </p>
           </div>
-          <div class="episode-card">
+          <div data-aos="fade-down" class="episode-card">
             <p class="episode-season">Sezon 4, Bölüm 8</p>
             <h3 class="episode-title">Too Far Gone</h3>
             <p class="episode-desc">
@@ -96,7 +97,7 @@
               saldırısı her şeyi değiştirir.
             </p>
           </div>
-          <div class="episode-card">
+          <div data-aos="fade-down" class="episode-card">
             <p class="episode-season">Sezon 4, Bölüm 14</p>
             <h3 class="episode-title">The Grove</h3>
             <p class="episode-desc">
@@ -105,14 +106,14 @@
             </p>
           </div>
         </div>
-        <div class="episode-intro-img">
+        <div data-aos="fade-down" class="episode-intro-img">
           <img src="./assets/images/intro-1.png" alt="Episode Visual 1" />
         </div>
       </div>
 
       <div class="episode-row">
         <div class="episode-cards">
-          <div class="episode-card">
+          <div data-aos="fade-down" class="episode-card">
             <p class="episode-season">Sezon 5, Bölüm 1</p>
             <h3 class="episode-title">No Sanctuary</h3>
             <p class="episode-desc">
@@ -120,7 +121,7 @@
               aksiyonun zirvesine ulaşır.
             </p>
           </div>
-          <div class="episode-card">
+          <div data-aos="fade-down" class="episode-card">
             <p class="episode-season">Sezon 6, Bölüm 4</p>
             <h3 class="episode-title">Here’s Not Here</h3>
             <p class="episode-desc">
@@ -128,7 +129,7 @@
               şekillendiren hikaye anlatılır.
             </p>
           </div>
-          <div class="episode-card">
+          <div data-aos="fade-down" class="episode-card">
             <p class="episode-season">Sezon 6, Bölüm 9</p>
             <h3 class="episode-title">No Way Out</h3>
             <p class="episode-desc">
@@ -136,7 +137,7 @@
               mücadeleye girişir.
             </p>
           </div>
-          <div class="episode-card">
+          <div data-aos="fade-down" class="episode-card">
             <p class="episode-season">Sezon 7, Bölüm 1</p>
             <h3 class="episode-title">The Day Will Come When You Won’t Be</h3>
             <p class="episode-desc">
@@ -145,10 +146,15 @@
             </p>
           </div>
         </div>
-        <div class="episode-intro-img intro-2">
+        <div data-aos="fade-down" class="episode-intro-img intro-2">
           <img src="./assets/images/intro-2.png" alt="Episode Visual 2" />
         </div>
       </div>
     </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
