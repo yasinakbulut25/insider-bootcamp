@@ -5,6 +5,7 @@
 @import "./favorite-scene.css";
 @import "./episodes.css";
 @import "./about.css";
+@import "./contact.css";
 @import "./footer.css";
 
 :root {
@@ -22,7 +23,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  scroll-padding-top: 2.5rem;
+  scroll-padding-top: 3rem;
 }
 
 body {
