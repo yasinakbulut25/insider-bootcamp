@@ -31,9 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add favorite
   const favoriteButton = document.querySelector(".favorite-btn");
 
-  favoriteButton.addEventListener("click", () => {
-    favoriteButton.classList.add("added");
-  });
+  if (favoriteButton) {
+    favoriteButton.addEventListener("click", () => {
+      favoriteButton.classList.add("added");
+    });
+  }
 
   // Header links
   const navLinks = document.querySelectorAll(".nav-link-item");
