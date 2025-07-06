@@ -44,7 +44,4 @@ document.addEventListener("DOMContentLoaded", () => {
       link.classList.add("active");
     });
   });
-
-  // AOS Aanimation Initialize
-  AOS.init();
 });
