@@ -235,7 +235,7 @@ body {
   color: #5b21b6;
 }
 
-.add-favourite-btn {
+.add-favorite-btn {
   position: absolute;
   top: 0.5rem;
   right: 0;
@@ -257,23 +257,23 @@ body {
   transition: 0.25s ease-in-out;
 }
 
-.add-favourite-btn .fill-icon {
+.add-favorite-btn .fill-icon {
   display: none;
 }
 
-.add-favourite-btn:hover {
+.add-favorite-btn:hover {
   color: #db2777;
 }
 
-.add-favourite-btn:hover .outline-icon {
+.add-favorite-btn:hover .outline-icon {
   display: none;
 }
 
-.add-favourite-btn:hover .fill-icon {
+.add-favorite-btn:hover .fill-icon {
   display: block;
 }
 
-.product-card:hover .add-favourite-btn {
+.product-card:hover .add-favorite-btn {
   opacity: 1;
   pointer-events: visible;
   right: 0.5rem;

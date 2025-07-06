@@ -28,10 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Add favourite
-  const favouriteButton = document.querySelector(".favourite-btn");
+  // Add favorite
+  const favoriteButton = document.querySelector(".favorite-btn");
 
-  favouriteButton.addEventListener("click", () => {
-    favouriteButton.classList.add("added");
+  favoriteButton.addEventListener("click", () => {
+    favoriteButton.classList.add("added");
   });
 });

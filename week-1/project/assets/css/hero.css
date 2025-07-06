@@ -147,7 +147,7 @@
   transform: scale(0.8);
 }
 
-.favourite-btn,
+.favorite-btn,
 .heart-icon {
   transition: 0.25s ease-in-out;
 }
@@ -156,14 +156,14 @@
   color: var(--primary);
 }
 
-.favourite-btn:hover,
-.favourite-btn.added {
+.favorite-btn:hover,
+.favorite-btn.added {
   background-color: var(--primary);
   color: var(--dark);
 }
 
-.favourite-btn:hover .heart-icon,
-.favourite-btn.added .heart-icon {
+.favorite-btn:hover .heart-icon,
+.favorite-btn.added .heart-icon {
   color: var(--dark);
 }
 
