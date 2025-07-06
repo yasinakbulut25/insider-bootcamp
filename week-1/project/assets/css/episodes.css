@@ -1,0 +1,70 @@
+.episode-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.episode-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.episode-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background-color: #111;
+  border-radius: 0.75rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.episode-card:hover {
+  transform: translateY(-5px);
+}
+
+.episode-title {
+  font-size: 1.1rem;
+  color: var(--primary);
+}
+
+.episode-desc {
+  font-size: 0.9rem;
+  color: #c8c8c8;
+}
+
+.episode-season {
+  color: #9d9d9d;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.episode-intro-img img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.episode-intro-img.intro-2 {
+  order: -1;
+}
+
+@media screen and (max-width: 887px) {
+  .episode-intro-img.intro-2 {
+    order: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .episode-row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
