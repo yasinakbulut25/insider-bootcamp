@@ -34,4 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
   favoriteButton.addEventListener("click", () => {
     favoriteButton.classList.add("added");
   });
+
+  // Header links
+  const navLinks = document.querySelectorAll(".nav-link-item");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.forEach((item) => item.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
 });
