@@ -12,7 +12,60 @@
     />
   </head>
   <body>
-    <main class="section main">
+    <header class="header">
+      <nav class="navbar container">
+        <a href="/" aria-label="Anasayfa">
+          <img class="navbar-logo" src="./assets/images/logo.png" alt="Logo" />
+        </a>
+        <button class="mobile-menu-btn">
+          <i class="bi bi-list"></i>
+        </button>
+        <ul class="navbar-links">
+          <li>
+            <a href="/" aria-label="Anasayfa">
+              <img
+                class="mobile-logo"
+                src="./assets/images/logo.png"
+                alt="Logo"
+              />
+            </a>
+          </li>
+          <li>
+            <a class="nav-link-item active" href="#home">
+              <i class="yellow-text bi bi-house"></i>
+              Ana Sayfa
+            </a>
+          </li>
+          <li>
+            <a class="nav-link-item" href="#characters">
+              <i class="yellow-text bi bi-people"></i>
+              Karakterler
+            </a>
+          </li>
+          <li>
+            <a class="nav-link-item" href="#episodes">
+              <i class="yellow-text bi bi-layers"></i>
+              Bölümler
+            </a>
+          </li>
+          <li>
+            <a class="nav-link-item" href="#about">
+              <i class="yellow-text bi bi-info-circle"></i>
+              Hakkında
+            </a>
+          </li>
+          <li>
+            <a class="nav-link-item" href="#contact">
+              <i class="yellow-text bi bi-bell"></i>
+              İletişim
+            </a>
+          </li>
+        </ul>
+        <div class="mobile-close-area"></div>
+      </nav>
+    </header>
+
+    <main class="section main" id="home">
       <figure class="main-img"></figure>
       <div class="movie-detail">
         <div class="movie-grid main-hero">
@@ -80,7 +133,7 @@
       </div>
     </main>
 
-    <section class="section">
+    <section class="section container" id="characters">
       <h2 class="section-title">
         <i class="bi bi-people"></i>
         Ana Karakterler
@@ -211,5 +264,7 @@
         </div>
       </div>
     </section>
+
+    <script src="./assets/js/index.js"></script>
   </body>
 </html>

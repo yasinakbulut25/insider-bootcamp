@@ -1,0 +1,152 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, #000, transparent);
+  z-index: 9;
+  padding: 0 1rem;
+  transition: 0.25s ease;
+}
+
+.header.scrolled {
+  background: #000;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-logo {
+  width: 120px;
+  min-width: 120px;
+}
+
+.mobile-logo {
+  display: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-link-item {
+  position: relative;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  color: var(--light-text);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.25s;
+}
+
+.nav-link-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 6px;
+  height: 2px;
+  border-radius: 4px;
+  background-color: var(--primary);
+  transition: width 0.25s ease-in-out;
+}
+
+.nav-link-item:hover::after,
+.nav-link-item.active::after {
+  width: 60%;
+}
+
+.mobile-menu-btn,
+.mobile-close-area {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    justify-content: space-between;
+  }
+
+  .navbar {
+    flex-direction: row-reverse;
+    padding: 0 1rem;
+  }
+
+  .navbar-links {
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 250px;
+    padding: 2rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    border-right: 2px solid var(--primary);
+    transition: left 0.25s ease;
+    overflow-y: auto;
+    z-index: 2;
+  }
+
+  .navbar-links.open {
+    left: 0;
+  }
+
+  .nav-link-item::after {
+    display: none;
+  }
+
+  .nav-link-item:hover,
+  .nav-link-item.active {
+    color: var(--primary);
+  }
+
+  .mobile-logo {
+    display: flex;
+    margin: 0 auto;
+    width: 150px;
+    min-width: 150px;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.75rem;
+    padding: 0.25rem;
+    color: var(--light-text);
+    cursor: pointer;
+  }
+
+  .mobile-close-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #0000006c;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease;
+    z-index: 1;
+  }
+
+  .navbar-links.open + .mobile-close-area {
+    opacity: 1;
+    pointer-events: visible;
+  }
+}
