@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <main class="main-container">
+      <section class="section form-section">
+        <h1 class="section-title">Görev Ekle</h1>
+        <div class="section-content">
+          <h2 class="content-title">
+            <i class="bi bi-info-circle"></i>
+            Yeni görevinizin detaylarını belirleyerek ekleyebilirsiniz.
+          </h2>
+
+          <form class="form">
+            <div class="form-group required">
+              <label class="form-label" for="taskTitle">Başlık</label>
+              <input
+                required
+                type="text"
+                maxlength="250"
+                placeholder="Görevinizin başlığını giriniz.."
+                id="taskTitle"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="taskDescription">Açıklama</label>
+              <textarea
+                maxlength="500"
+                id="taskDescription"
+                rows="3"
+                placeholder="Göreviniz için açıklama girebilirsiniz.."
+              ></textarea>
+            </div>
+
+            <div class="form-group required">
+              <label class="form-label">Öncelik</label>
+              <div class="priority-group">
+                <div class="priority-option">
+                  <input
+                    type="radio"
+                    class="priority-input"
+                    id="priorityLow"
+                    name="priority"
+                    value="low"
+                  />
+                  <label
+                    class="priority-label priority-green"
+                    for="priorityLow"
+                  >
+                    <span class="option-dot"></span>
+                    Düşük
+                  </label>
+                </div>
+                <div class="priority-option">
+                  <input
+                    type="radio"
+                    class="priority-input"
+                    id="priorityMedium"
+                    name="priority"
+                    value="medium"
+                  />
+                  <label
+                    class="priority-label priority-purple"
+                    for="priorityMedium"
+                  >
+                    <span class="option-dot"></span>
+                    Orta
+                  </label>
+                </div>
+                <div class="priority-option">
+                  <input
+                    type="radio"
+                    class="priority-input"
+                    id="priorityHigh"
+                    name="priority"
+                    value="high"
+                  />
+                  <label
+                    class="priority-label priority-orange"
+                    for="priorityHigh"
+                  >
+                    <span class="option-dot"></span>
+                    Yüksek
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-dark">
+              <i class="bi bi-plus"></i> Görev Ekle
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
