@@ -1,49 +1,80 @@
+// Countdown state variables
 let countdownTimer;
 let isRunning = false;
 let currentTime = 10;
+let totalTime = 10;
+let messageTimeout;
 
+// Get DOM elements
 const timeInput = document.getElementById("timeInput");
 const countdownElement = document.getElementById("countdown");
 const startBtn = document.getElementById("startBtn");
 const resetBtn = document.getElementById("resetBtn");
 const statusMessage = document.getElementById("statusMessage");
+const progressBar = document.getElementById("progressBar");
+const progressCircle = document.getElementById("progressCircle");
 
-function showMessage(message, type = "success") {
+// Show a temporary toast message
+const showMessage = (message, type = "success") => {
   statusMessage.textContent = message;
   statusMessage.className = `status-message show ${type}`;
 
-  setTimeout(() => {
+  clearTimeout(messageTimeout);
+
+  messageTimeout = setTimeout(() => {
     statusMessage.classList.remove("show");
   }, 3000);
-}
+};
 
-function updateDisplay() {
+// Update countdown number and visual warning state
+const updateDisplay = () => {
   countdownElement.textContent = currentTime;
+  progressCircle.classList.remove("finished");
 
-  if (currentTime <= 5 && currentTime > 0) {
-    countdownElement.classList.add("warning");
-  } else {
-    countdownElement.classList.remove("warning");
+  const warning = currentTime <= 5 && currentTime > 0;
+  countdownElement.classList.toggle("warning", warning);
+  progressBar.classList.toggle("warning", warning);
+};
+
+// Trigger or reset circular progress animation
+const updateProgress = () => {
+  progressBar.classList.remove("animate");
+
+  if (isRunning) {
+    progressBar.style.setProperty("--duration", `${totalTime}s`);
+    progressBar.classList.add("animate");
   }
-}
+};
 
-function startCountdown() {
+// Enable or disable buttons and update start button text
+const setButtonState = (disabled) => {
+  startBtn.disabled = disabled;
+  timeInput.disabled = disabled;
+  startBtn.innerHTML = disabled
+    ? "<i class='bi bi-hourglass-split'></i> Çalışıyor..."
+    : "<i class='bi bi-play'></i> Başlat";
+};
+
+// Start the countdown timer
+const startCountdown = () => {
   if (isRunning) return;
 
   const inputValue = parseInt(timeInput.value);
-  if (isNaN(inputValue) || inputValue <= 0) {
-    showMessage("Lütfen geçerli bir süre girin!", "finished");
+  if (isNaN(inputValue) || inputValue <= 0 || inputValue > 3600) {
+    showMessage(
+      "Lütfen 1 ile 3600 arasında geçerli bir süre girin!",
+      "finished"
+    );
     return;
   }
 
-  currentTime = inputValue;
+  currentTime = totalTime = inputValue;
   isRunning = true;
-  startBtn.disabled = true;
-  startBtn.textContent = "Çalışıyor...";
-  timeInput.disabled = true;
 
-  showMessage("Geri sayım başlatıldı!");
+  setButtonState(true);
   updateDisplay();
+  showMessage("Geri sayım başlatıldı!");
+  updateProgress();
 
   countdownTimer = setInterval(() => {
     currentTime--;
@@ -52,45 +83,48 @@ function startCountdown() {
     if (currentTime <= 0) {
       clearInterval(countdownTimer);
       isRunning = false;
-      startBtn.disabled = false;
-      startBtn.textContent = "Başlat";
-      timeInput.disabled = false;
+      setButtonState(false);
 
-      countdownElement.textContent = "Süre Doldu!";
       countdownElement.classList.add("warning");
-      showMessage("Süre doldu! Geri sayım tamamlandı.", "finished");
+      progressBar.classList.remove("animate");
+      progressCircle.classList.add("finished");
+
+      showMessage("Geri sayım tamamlandı.", "finished");
     }
   }, 1000);
-}
+};
 
-function resetCountdown() {
+// Reset countdown to original state
+const resetCountdown = () => {
   clearInterval(countdownTimer);
   isRunning = false;
-  startBtn.disabled = false;
-  startBtn.textContent = "Başlat";
-  timeInput.disabled = false;
+  setButtonState(false);
 
   const inputValue = parseInt(timeInput.value) || 10;
-  currentTime = inputValue;
+  currentTime = totalTime = inputValue;
 
   updateDisplay();
+  progressBar.classList.remove("warning", "animate");
   countdownElement.classList.remove("warning");
+
   showMessage("Geri sayım sıfırlandı!");
-}
+};
 
-// Event listeners
-startBtn.addEventListener("click", startCountdown);
-resetBtn.addEventListener("click", resetCountdown);
-
+// Update value on input change
 timeInput.addEventListener("input", () => {
   if (!isRunning) {
     const inputValue = parseInt(timeInput.value) || 0;
     if (inputValue > 0) {
-      currentTime = inputValue;
+      currentTime = totalTime = inputValue;
       updateDisplay();
+      progressBar.classList.remove("animate");
     }
   }
 });
 
-// Initialize
+// Set initial display
 updateDisplay();
+
+// Event listeners
+startBtn.addEventListener("click", startCountdown);
+resetBtn.addEventListener("click", resetCountdown);

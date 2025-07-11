@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Geri Sayım</title>
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
   </head>
   <body>
     <main class="main-container">
-      <h1 class="page-title">⏰ Geri Sayım</h1>
-
+      <h1 class="page-title">Geri Sayım</h1>
       <div class="input-group">
         <label for="timeInput">Süre (saniye):</label>
         <input
@@ -23,12 +26,28 @@
       </div>
 
       <div class="timer-display">
+        <div class="progress-circle" id="progressCircle">
+          <svg>
+            <circle class="progress-bg" cx="120" cy="120" r="109"></circle>
+            <circle
+              class="progress-bar"
+              cx="120"
+              cy="120"
+              r="109"
+              id="progressBar"
+            ></circle>
+          </svg>
+        </div>
         <p id="countdown">10</p>
       </div>
 
       <div class="buttons">
-        <button class="action-btn start-btn" id="startBtn">Başlat</button>
-        <button class="action-btn reset-btn" id="resetBtn">Sıfırla</button>
+        <button class="action-btn start-btn" id="startBtn">
+          <i class="bi bi-play"></i> Başlat
+        </button>
+        <button class="action-btn reset-btn" id="resetBtn">
+          <i class="bi bi-arrow-repeat"></i> Sıfırla
+        </button>
       </div>
 
       <div class="status-message" id="statusMessage"></div>

@@ -1,9 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+
+:root {
+  --progress-dash: 685;
+  --progress-stroke: 12;
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Michroma", sans-serif;
 }
 
 body {
@@ -13,7 +19,6 @@ body {
   justify-content: center;
   align-items: center;
   padding: 1.25rem;
-  font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #afbbf5 40%, #667eea 100%);
 }
 
@@ -35,7 +40,6 @@ body {
 .page-title {
   color: #2a2a2a;
   font-size: 2.25rem;
-  font-weight: 600;
 }
 
 .input-group {
@@ -67,11 +71,58 @@ body {
 }
 
 .timer-display {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-circle {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  transform: rotate(-90deg);
+}
+
+.progress-circle svg {
   width: 100%;
-  background: #f8f9fa;
-  padding: 2rem;
-  border-radius: 0.75rem;
-  border: 1px solid #e9ecef;
+  height: 100%;
+}
+
+.progress-bg {
+  fill: none;
+  stroke: #e9ecef;
+  stroke-width: var(--progress-stroke);
+}
+
+.progress-bar {
+  fill: none;
+  stroke: #667eea;
+  stroke-width: var(--progress-stroke);
+  stroke-linecap: round;
+  stroke-dasharray: var(--progress-dash);
+  stroke-dashoffset: var(--progress-dash);
+  transition: stroke 0.3s ease;
+}
+
+.progress-bar.warning,
+.progress-circle.finished .progress-bg {
+  stroke: #e74c3c;
+}
+
+.progress-bar.animate {
+  animation: progressAnimation var(--duration, 10s) linear forwards;
+}
+
+@keyframes progressAnimation {
+  from {
+    stroke-dashoffset: var(--progress-dash);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 #countdown {
@@ -79,6 +130,11 @@ body {
   font-weight: 600;
   color: #333;
   transition: color 0.3s ease;
+  z-index: 1;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #countdown.warning {
@@ -98,18 +154,25 @@ body {
   border-radius: 0.5rem;
   font-size: 1rem;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
+.action-btn i {
+  font-size: 1.5rem;
+}
+
 .start-btn {
-  background: #4caf50;
+  background: #667eea;
   color: #fff;
 }
 
 .start-btn:hover {
-  background: #45a049;
+  background: #2b4eeb;
 }
 
 .start-btn:disabled {
@@ -127,7 +190,7 @@ body {
 }
 
 .status-message {
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   font-size: 0.9rem;
   font-weight: 500;
@@ -154,7 +217,7 @@ body {
 }
 
 @media (max-width: 480px) {
-  .container {
+  .main-container {
     padding: 2rem 1.25rem;
   }
 
