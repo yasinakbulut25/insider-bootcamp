@@ -13,7 +13,9 @@
   <body>
     <main class="main-container">
       <section class="section form-section">
-        <h1 class="section-title">Görev Ekle</h1>
+        <div class="section-title-row">
+          <h1 class="section-title">Görev Ekle</h1>
+        </div>
         <div class="section-content">
           <h2 class="content-title">
             <i class="bi bi-info-circle"></i>
@@ -100,6 +102,91 @@
               <i class="bi bi-plus"></i> Görev Ekle
             </button>
           </form>
+        </div>
+      </section>
+
+      <section class="section form-section">
+        <div class="section-title-row">
+          <h1 class="section-title">Görevlerler</h1>
+          <div class="filters">
+            <button class="filter-btn active">Hepsi</button>
+            <button class="filter-btn">Tamamlananlar</button>
+          </div>
+        </div>
+        <div class="section-content">
+          <h2 class="content-title">
+            <i class="bi bi-info-circle"></i>
+            Eklediğiniz tüm görevlerinizi görebilir ve üzerinde işlem
+            yapabilirsiniz.
+          </h2>
+
+          <div class="tasks-container">
+            <div class="task-item completed">
+              <div class="action-buttons">
+                <button class="action-btn complete-btn">
+                  <i class="bi bi-check"></i>
+                </button>
+                <button class="action-btn remove-btn">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+              <div class="task-texts">
+                <div class="text-top">
+                  <h3 class="task-title">Gorev baslik text</h3>
+                  <span class="task-priority green">Düşük</span>
+                </div>
+
+                <p class="task-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+                </p>
+              </div>
+            </div>
+
+            <div class="task-item">
+              <div class="action-buttons">
+                <button class="action-btn complete-btn">
+                  <i class="bi bi-check"></i>
+                </button>
+                <button class="action-btn remove-btn">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+              <div class="task-texts">
+                <div class="text-top">
+                  <h3 class="task-title">Gorev baslik text</h3>
+                  <span class="task-priority orange">Yüksek</span>
+                </div>
+
+                <p class="task-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+                </p>
+              </div>
+            </div>
+
+            <div class="task-item">
+              <div class="action-buttons">
+                <button class="action-btn complete-btn">
+                  <i class="bi bi-check"></i>
+                </button>
+                <button class="action-btn remove-btn">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+              <div class="task-texts">
+                <div class="text-top">
+                  <h3 class="task-title">Gorev baslik text</h3>
+                  <span class="task-priority purple">Orta</span>
+                </div>
+
+                <p class="task-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
