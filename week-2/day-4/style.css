@@ -50,6 +50,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   padding: 0.85rem 1.25rem;
   border-bottom: var(--border);
 }
@@ -96,4 +98,38 @@ body {
 .btn-dark {
   background-color: var(--dark);
   color: #fff;
+}
+
+.toast-msg {
+  position: fixed;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: var(--body);
+  border: var(--border);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease-in-out;
+  z-index: 1;
+}
+
+.toast-msg.success {
+  background-color: var(--light-green);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.toast-msg.error {
+  background-color: #fef2f2;
+  border-color: #fca5a5;
+  color: #ef4444;
+}
+
+.toast-msg.show {
+  top: 3rem;
+  opacity: 1;
+  pointer-events: visible;
 }

@@ -18,6 +18,7 @@
 .filters {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -28,11 +29,37 @@
   border: var(--border);
   background-color: transparent;
   cursor: pointer;
+  color: var(--dark);
 }
 
 .filter-btn.active,
 .filter-btn:hover {
   background-color: var(--body);
+}
+
+.priority-select {
+  padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border: var(--border);
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: var(--dark);
+  background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem 1rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.priority-select:hover {
+  background-color: var(--body);
+}
+
+.priority-select:focus {
+  outline: none;
 }
 
 .action-buttons {
@@ -125,22 +152,27 @@
   border: var(--border);
 }
 
-.task-priority.green {
+.task-priority.low {
   border-color: var(--green);
   color: var(--green);
   background-color: var(--light-green);
 }
 
-.task-priority.purple {
+.task-priority.medium {
   border-color: var(--purple);
   color: var(--purple);
   background-color: var(--light-purple);
 }
 
-.task-priority.orange {
+.task-priority.high {
   border-color: var(--orange);
   color: var(--orange);
   background-color: var(--light-orange);
+}
+
+.empty {
+  color: var(--dark);
+  font-size: 0.9rem;
 }
 
 /* COMPLETED TASK STYLES */

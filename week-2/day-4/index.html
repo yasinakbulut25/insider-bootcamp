@@ -22,11 +22,10 @@
             Yeni görevinizin detaylarını belirleyerek ekleyebilirsiniz.
           </h2>
 
-          <form class="form">
+          <form class="form" id="taskForm">
             <div class="form-group required">
               <label class="form-label" for="taskTitle">Başlık</label>
               <input
-                required
                 type="text"
                 maxlength="250"
                 placeholder="Görevinizin başlığını giriniz.."
@@ -107,10 +106,16 @@
 
       <section class="section form-section">
         <div class="section-title-row">
-          <h1 class="section-title">Görevlerler</h1>
+          <h1 class="section-title">Görevler</h1>
           <div class="filters">
             <button class="filter-btn active">Hepsi</button>
             <button class="filter-btn">Tamamlananlar</button>
+            <select id="priorityFilter" class="priority-select">
+              <option value="all">Tüm Öncelikler</option>
+              <option value="low">Düşük</option>
+              <option value="medium">Orta</option>
+              <option value="high">Yüksek</option>
+            </select>
           </div>
         </div>
         <div class="section-content">
@@ -120,7 +125,7 @@
             yapabilirsiniz.
           </h2>
 
-          <div class="tasks-container">
+          <div class="tasks-container" id="taskList">
             <div class="task-item completed">
               <div class="action-buttons">
                 <button class="action-btn complete-btn">
@@ -133,7 +138,7 @@
               <div class="task-texts">
                 <div class="text-top">
                   <h3 class="task-title">Gorev baslik text</h3>
-                  <span class="task-priority green">Düşük</span>
+                  <span class="task-priority low">Düşük</span>
                 </div>
 
                 <p class="task-description">
@@ -155,7 +160,7 @@
               <div class="task-texts">
                 <div class="text-top">
                   <h3 class="task-title">Gorev baslik text</h3>
-                  <span class="task-priority orange">Yüksek</span>
+                  <span class="task-priority high">Yüksek</span>
                 </div>
 
                 <p class="task-description">
@@ -177,7 +182,7 @@
               <div class="task-texts">
                 <div class="text-top">
                   <h3 class="task-title">Gorev baslik text</h3>
-                  <span class="task-priority purple">Orta</span>
+                  <span class="task-priority medium">Orta</span>
                 </div>
 
                 <p class="task-description">
@@ -189,6 +194,8 @@
           </div>
         </div>
       </section>
+
+      <div class="toast-msg" id="toastMsg"></div>
     </main>
     <script src="./app.js"></script>
   </body>
