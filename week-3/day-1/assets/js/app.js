@@ -46,10 +46,10 @@ const renderStudentList = () => {
 
   // 🔄 Silme butonunu sadece hover'da göster
   $(".student-item").hover(
-    () => {
+    function () {
       $(this).find(".remove-btn").fadeIn(150);
     },
-    () => {
+    function () {
       $(this).find(".remove-btn").fadeOut(150);
     }
   );
@@ -61,10 +61,10 @@ const showToast = (msg, type = "success") => {
   setTimeout(() => toast.removeClass("show"), 2500);
 };
 
-$(document).ready(() => {
+$(document).ready(function () {
   renderStudentList();
 
-  $("#taskForm").on("submit", (e) => {
+  $("#taskForm").on("submit", function (e) {
     e.preventDefault();
     const name = $("#studentName").val().trim();
     const studentClass = $("#studentClass").val().trim();
@@ -88,18 +88,18 @@ $(document).ready(() => {
     this.reset();
   });
 
-  $("#taskList").on("click", ".remove-btn", (e) => {
+  $("#taskList").on("click", ".remove-btn", function (e) {
     e.stopPropagation();
     const id = $(this).closest(".student-item").data("id");
     studentData = studentData.filter((s) => s.id !== id);
     renderStudentList();
   });
 
-  $("#taskList").on("click", ".student-item", () => {
+  $("#taskList").on("click", ".student-item", function () {
     $(this).toggleClass("completed");
   });
 
-  $("#taskList").on("click", ".detail-btn", (e) => {
+  $("#taskList").on("click", ".detail-btn", function (e) {
     e.stopPropagation();
     const id = $(this).closest(".student-item").data("id");
     const student = studentData.find((s) => s.id === id);
@@ -108,7 +108,7 @@ $(document).ready(() => {
     );
   });
 
-  $("#genderFilter").on("change", () => {
+  $("#genderFilter").on("change", function () {
     currentFilter = $(this).val();
     renderStudentList();
   });
