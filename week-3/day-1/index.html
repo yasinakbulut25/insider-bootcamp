@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Öğrenci Listesi</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <main class="main-container">
+      <section class="section form-section">
+        <div class="section-title-row">
+          <h1 class="section-title">Öğrenci Ekle</h1>
+        </div>
+        <div class="section-content">
+          <form class="form" id="taskForm">
+            <div class="form-group required">
+              <label class="form-label" for="studentName">Ad Soyad</label>
+              <input
+                type="text"
+                id="studentName"
+                placeholder="Ad Soyad giriniz.."
+              />
+            </div>
+
+            <div class="form-group required">
+              <label class="form-label" for="studentClass">Sınıfı</label>
+              <input type="text" id="studentClass" placeholder="Örn: 10A" />
+            </div>
+
+            <div class="form-group required">
+              <label class="form-label">Cinsiyet</label>
+              <div class="gender-group">
+                <input
+                  type="radio"
+                  class="gender-input"
+                  name="gender"
+                  value="Male"
+                  id="genderMale"
+                />
+                <label for="genderMale" class="gender-label gender-green">
+                  <span class="option-dot"></span>
+                  Erkek
+                </label>
+                <input
+                  type="radio"
+                  name="gender"
+                  class="gender-input"
+                  value="Female"
+                  id="genderFemale"
+                />
+                <label for="genderFemale" class="gender-label gender-purple">
+                  <span class="option-dot"></span>
+                  Kadın
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-dark">
+              <i class="bi bi-plus"></i> Öğrenci Ekle
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section class="section form-section">
+        <div class="section-title-row">
+          <h1 class="section-title">Öğrenciler</h1>
+          <div class="filters">
+            <select id="genderFilter" class="gender-select">
+              <option value="all">Hepsi</option>
+              <option value="male">Sadece Erkekler</option>
+              <option value="female">Sadece Kadınlar</option>
+            </select>
+          </div>
+        </div>
+        <div class="section-content">
+          <div class="students-container" id="taskList"></div>
+        </div>
+      </section>
+
+      <div class="toast-msg" id="toastMsg">İşlem başarılı</div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

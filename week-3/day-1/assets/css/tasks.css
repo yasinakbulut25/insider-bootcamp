@@ -1,0 +1,183 @@
+.students-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.student-item {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: var(--border);
+  padding: 0.75rem 1rem;
+  overflow: hidden;
+  transition: 0.25s linear;
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  border: var(--border);
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--dark);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background-color: var(--body);
+}
+
+.gender-select {
+  padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border: var(--border);
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: var(--dark);
+  background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem 1rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.gender-select:hover {
+  background-color: var(--body);
+}
+
+.gender-select:focus {
+  outline: none;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
+
+.action-btn {
+  width: 18px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.detail-btn {
+  font-size: 0.6rem;
+  margin-top: 3px;
+  background-color: transparent;
+  border: var(--border);
+  color: var(--dark);
+}
+
+.remove-btn {
+  font-size: 0.6rem;
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+}
+
+.remove-btn i {
+  color: #ef4444;
+}
+
+.student-texts {
+  width: 100%;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.text-top {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 60px;
+  gap: 0.5rem;
+}
+
+.student-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.student-description {
+  width: 100%;
+  font-size: 0.8rem;
+  color: var(--light);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.student-gender {
+  width: max-content;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.7rem;
+  display: flex;
+  margin-left: auto;
+  border: var(--border);
+}
+
+.student-gender.low {
+  border-color: var(--green);
+  color: var(--green);
+  background-color: var(--light-green);
+}
+
+.student-gender.medium {
+  border-color: var(--purple);
+  color: var(--purple);
+  background-color: var(--light-purple);
+}
+
+.student-gender.high {
+  border-color: var(--orange);
+  color: var(--orange);
+  background-color: var(--light-orange);
+}
+
+.empty {
+  color: var(--dark);
+  font-size: 0.9rem;
+}
+
+/* COMPLETED student STYLES */
+
+.student-item.completed {
+  background-color: var(--light-green);
+  border-color: var(--green);
+}
+
+.student-item.completed .complete-btn {
+  border-color: var(--green);
+}
+
+.student-item.completed .complete-btn i {
+  display: block;
+  color: var(--green);
+}

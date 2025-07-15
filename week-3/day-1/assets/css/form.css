@@ -1,0 +1,100 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  background-color: var(--body);
+  padding: 1rem;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: none;
+}
+
+.form-group .form-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-group.required .form-label::after {
+  content: "*";
+  padding-left: 0.25rem;
+  color: #e11d48;
+}
+
+.form-group .form-label::after {
+  content: "(opsiyonel)";
+  padding-left: 0.25rem;
+  color: var(--light);
+  font-weight: 400;
+}
+
+.gender-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gender-label {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: var(--border);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+.gender-label .option-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.gender-green .option-dot {
+  background-color: var(--green);
+}
+
+.gender-purple .option-dot {
+  background-color: var(--purple);
+}
+
+.gender-orange .option-dot {
+  background-color: var(--orange);
+}
+
+.gender-input {
+  display: none;
+}
+
+.gender-input:checked + .gender-green {
+  border-color: var(--green);
+  background-color: var(--light-green);
+}
+
+.gender-input:checked + .gender-purple {
+  border-color: var(--purple);
+  background-color: var(--light-purple);
+}
+
+.gender-input:checked + .gender-orange {
+  border-color: var(--orange);
+  background-color: var(--light-orange);
+}
