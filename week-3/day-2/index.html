@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll Event</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <main class="section">
+      <h1 class="page-title">Scroll Down</h1>
+      <div class="posts-container">
+        <div class="post-card">
+          <div class="post-info">
+            <p class="post-user"><i class="bi bi-person"></i> User Name</p>
+            <h3 class="post-title">Post Title</h3>
+            <p class="post-body">Post Body</p>
+          </div>
+          <button class="add-favorite-btn" data-id="${post.id}">
+            <i class="outline-icon bi bi-suit-heart"></i>
+            <i class="fill-icon bi bi-suit-heart-fill d-none"></i>
+          </button>
+        </div>
+        <div class="post-card">
+          <div class="post-info">
+            <p class="post-user"><i class="bi bi-person"></i> User Name</p>
+            <h3 class="post-title">Post Title</h3>
+            <p class="post-body">Post Body</p>
+          </div>
+          <button class="add-favorite-btn" data-id="${post.id}">
+            <i class="outline-icon bi bi-suit-heart"></i>
+            <i class="fill-icon bi bi-suit-heart-fill d-none"></i>
+          </button>
+        </div>
+        <div class="post-card">
+          <div class="post-info">
+            <p class="post-user"><i class="bi bi-person"></i> User Name</p>
+            <h3 class="post-title">Post Title</h3>
+            <p class="post-body">Post Body</p>
+          </div>
+          <button class="add-favorite-btn" data-id="${post.id}">
+            <i class="outline-icon bi bi-suit-heart"></i>
+            <i class="fill-icon bi bi-suit-heart-fill d-none"></i>
+          </button>
+        </div>
+        <div class="post-card">
+          <div class="post-info">
+            ƒ
+            <p class="post-user"><i class="bi bi-person"></i> User Name</p>
+            <h3 class="post-title">Post Title</h3>
+            <p class="post-body">Post Body</p>
+          </div>
+          <button class="add-favorite-btn" data-id="${post.id}">
+            <i class="outline-icon bi bi-suit-heart"></i>
+            <i class="fill-icon bi bi-suit-heart-fill d-none"></i>
+          </button>
+        </div>
+        <div class="post-card">
+          <div class="post-info">
+            <p class="post-user"><i class="bi bi-person"></i> User Name</p>
+            <h3 class="post-title">Post Title</h3>
+            <p class="post-body">Post Body</p>
+          </div>
+          <button class="add-favorite-btn" data-id="${post.id}">
+            <i class="outline-icon bi bi-suit-heart"></i>
+            <i class="fill-icon bi bi-suit-heart-fill d-none"></i>
+          </button>
+        </div>
+      </div>
+      <div class="toast-msg" id="toastMsg"></div>
+    </main>
+    <div id="loading" style="text-align: center; padding: 1.5rem">
+      <i class="bi bi-arrow-repeat spin"></i>
+    </div>
+  </body>
+</html>
