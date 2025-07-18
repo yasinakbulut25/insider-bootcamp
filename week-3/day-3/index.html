@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rastgele Profil Kartları</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/magnific-popup/dist/magnific-popup.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glider-js/glider.min.css"
+    />
+  </head>
+  <body>
+    <main class="main-container">
+      <section class="section header-section">
+        <h1 class="page-title">Rastgele Kullanıcılar</h1>
+        <p class="page-desc">
+          Sayfa yüklendiğinde veya butona tıkladığınızda yeni kullanıcı
+          profilleri listelenir.
+        </p>
+        <button class="fetch-btn" id="loadProfilesBtn">
+          <i class="bi bi-arrow-repeat"></i> Yeni Profiller Getir
+        </button>
+      </section>
+
+      <section class="section card-section">
+        <div class="card-list" id="profileCards">
+          <!-- Profil kartları buraya eklenecek -->
+        </div>
+      </section>
+
+      <section class="section slider-section">
+        <h2 class="page-title">Popüler Kullanıcılar</h2>
+        <div class="slider-wrapper glider-contain">
+          <div class="glider" id="profileSlider">
+            <!-- Slider içeriği -->
+          </div>
+          <button role="button" aria-label="Previous" class="glider-prev">
+            <i class="bi bi-chevron-double-left"></i>
+          </button>
+          <button role="button" aria-label="Next" class="glider-next">
+            <i class="bi bi-chevron-double-right"></i>
+          </button>
+          <div role="tablist" class="dots"></div>
+        </div>
+      </section>
+
+      <div class="toast-msg" id="toastMsg"></div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glider-js/glider.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
