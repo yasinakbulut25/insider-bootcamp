@@ -9,12 +9,23 @@ $(document).ready(function () {
   let shownCount = 0;
   const batchSize = 6;
 
+  // Debounce helper
+  const debounce = (fn, delay) => {
+    let timeout;
+    return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => fn.apply(this, args), delay);
+    };
+  };
+
+  // Verileri çek
   $.ajax({
     url: `${API_URL}/products`,
     method: "GET",
     success: function (data) {
       allProducts = data;
       loadMoreProducts();
+      renderCarousel(data);
     },
 
     error: function () {
@@ -22,6 +33,42 @@ $(document).ready(function () {
     },
   });
 
+  // Swiper Carousel
+  const renderCarousel = (products) => {
+    const html = products
+      .slice(0, 5)
+      .map(
+        (product) => `
+        <div class="swiper-slide">
+          <h3 class="product-title truncate-2">${product.title}</h3>
+          <img src="${product.image}" alt="${product.title}" />
+        </div>`
+      )
+      .join("");
+
+    $(".carousel-wrapper").html(`
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        ${html}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  `);
+
+    // Swiper Init
+    new Swiper(".swiper", {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  };
+
+  // Ürün kartı oluştur
   const createCard = (product) => {
     const cartProducts = JSON.parse(localStorage.getItem(cartKey)) || [];
     const favProducts = JSON.parse(localStorage.getItem(favKey)) || [];
@@ -47,13 +94,18 @@ $(document).ready(function () {
                   <span class="rate">${product.rating.rate}</span>
                 </div>
               </div>
-              <button class="add-basket-btn">
-                ${
-                  isAddedToCart
-                    ? "Sepete Eklendi  <i class='bi bi-bag-plus-fill'></i>"
-                    : "Sepete Ekle <i class='bi bi-bag-plus'></i>"
-                }
-              </button>
+              <div class="product-actions">
+                <button class="action-btn open-detail-btn">
+                  <i class='bi bi-eye'></i> Detay
+                </button>
+                <button class="action-btn add-basket-btn">
+                  ${
+                    isAddedToCart
+                      ? "<i class='bi bi-bag-plus-fill'></i> Sepete Eklendi"
+                      : "<i class='bi bi-bag-plus'></i> Sepete Ekle"
+                  }
+                </button>
+              </div>
             </div>
             <div class="status">Stokta</div>
             <button class="add-favorite-btn ${isFaved ? "added" : ""}">
@@ -63,15 +115,16 @@ $(document).ready(function () {
           </div>`;
   };
 
+  // Daha fazla ürün yükle
   const loadMoreProducts = () => {
     const slice = allProducts.slice(shownCount, shownCount + batchSize);
 
     slice.forEach((product, i) => {
       productList.append(
         $(createCard(product))
-          .css({ opacity: 0, position: "relative", top: "-20px" })
-          .delay(i * 150)
-          .animate({ top: "0", opacity: 1 }, 150, "swing")
+          .css({ opacity: 0 })
+          .delay(i * 100)
+          .animate({ opacity: 1 }, 300)
       );
     });
 
@@ -82,7 +135,7 @@ $(document).ready(function () {
     }
   };
 
-  // Render Cart/Favs Modal
+  // Sepet/Favoriler Modal
   const renderFancyboxList = (type = "cart") => {
     const key = type === "cart" ? cartKey : favKey;
     const title = type === "cart" ? "Sepetim" : "Favorilerim";
@@ -125,7 +178,7 @@ $(document).ready(function () {
     Fancybox.show([{ src: html, type: "html" }]);
   };
 
-  // Show Toast Message
+  // Mesaj Göster
   const showToast = (message, type = "info") => {
     toastBox
       .text(message)
@@ -135,7 +188,66 @@ $(document).ready(function () {
     setTimeout(() => toastBox.fadeOut(500), 2000);
   };
 
-  // Add to Cart
+  // Detay modal içeriği
+  $(document).on("click", ".open-detail-btn", function () {
+    const card = $(this).closest(".product-card");
+    const clonedCard = card.clone();
+    clonedCard
+      .find(".add-basket-btn, .add-favorite-btn, .open-detail-btn")
+      .remove();
+    clonedCard.find(".product-desc").removeClass("truncate-2");
+
+    Fancybox.show([
+      {
+        src: `
+        <div class="modal-wrapper">
+          ${clonedCard.prop("outerHTML")}
+        </div>`,
+        type: "html",
+      },
+    ]);
+  });
+
+  // Arama kutusu
+  $("body").prepend(
+    `<input
+      class='search-input'
+      type='number'
+      id='searchProduct'
+      placeholder='Ürün ID ile ara'
+    />`
+  );
+  $("#searchProduct").on(
+    "input",
+    debounce(function () {
+      const val = Number($(this).val());
+      if (!val) return;
+
+      $.get(`${API_URL}/products/${val}`)
+        .done((res) => {
+          const card = $(`.product-card[data-id=${res.id}]`);
+
+          if (card.length === 0) {
+            showToast("Bu ürün sayfada yok!", "error");
+            return;
+          }
+          const clonedCard = card.clone();
+
+          Fancybox.show([
+            {
+              src: `
+                <div class="modal-wrapper">
+                  ${clonedCard.prop("outerHTML")}
+                </div>`,
+              type: "html",
+            },
+          ]);
+        })
+        .fail(() => showToast("Ürün bulunamadı", "error"));
+    }, 600)
+  );
+
+  // Sepete ekle
   $(document).on("click", ".add-basket-btn", function () {
     const id = $(this).closest(".product-card").data("id");
     let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
@@ -150,7 +262,7 @@ $(document).ready(function () {
     }
   });
 
-  // Add to Favorites
+  // Favorilere ekle
   $(document).on("click", ".add-favorite-btn", function () {
     const id = $(this).closest(".product-card").data("id");
     let favs = JSON.parse(localStorage.getItem(favKey)) || [];
@@ -169,6 +281,7 @@ $(document).ready(function () {
     localStorage.setItem(favKey, JSON.stringify(favs));
   });
 
+  // Sepetten/Favorilerden sil
   $(document).on("click", ".remove-btn", function () {
     const key = $(this).data("key");
     const id = $(this).data("id");
@@ -186,24 +299,18 @@ $(document).ready(function () {
     }
   });
 
-  // Load More Products
-  $(document).on("click", "#loadMoreBtn", loadMoreProducts);
+  // Sepet/Favori modalı aç
+  $(".basket-btn").on("click", () => renderFancyboxList("cart"));
+  $(".fav-btn").on("click", () => renderFancyboxList("fav"));
 
-  // Open Cart Modal
-  $(".basket-btn").on("click", function () {
-    renderFancyboxList("cart");
-  });
-
-  // Open Favorites Modal
-  $(".fav-btn").on("click", function () {
-    renderFancyboxList("fav");
-  });
-
-  // Clear Cart/Favs Data
+  // Sepetten/Favorilerden verileri temizle
   $(document).on("click", "#clearFancyboxData", function () {
     const key = $(this).data("key");
     localStorage.removeItem(key);
     showToast("Liste temizlendi", "info");
     Fancybox.close();
   });
+
+  // Daha fazla yükle butonu
+  $(document).on("click", "#loadMoreBtn", loadMoreProducts);
 });

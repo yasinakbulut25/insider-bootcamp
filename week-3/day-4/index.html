@@ -17,11 +17,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
   </head>
   <body>
@@ -43,7 +39,15 @@
 
     <main class="section container">
       <h1 class="page-title">Yeni Ürünlerimiz</h1>
-      <div class="carousel-wrapper"></div>
+      <div class="carousel-wrapper">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <!-- Slides burada jQuery ile eklenecek -->
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
       <div class="product-grid"></div>
       <div class="load-more-wrapper">
         <button class="load-more-btn" id="loadMoreBtn">
@@ -55,7 +59,7 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
